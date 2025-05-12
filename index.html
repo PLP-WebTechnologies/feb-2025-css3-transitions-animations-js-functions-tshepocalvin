@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="box">Hello</div>
+    <button id="resetBtn">Reset Animation</button>
+
+    <script>
+  const box = document.getElementById('box');
+  const resetBtn = document.getElementById('resetBtn');
+
+  function triggerAnimation() {
+    const hasAnimated = localStorage.getItem('animated');
+
+    if (!hasAnimated) {
+      box.classList.add('animate');
+      localStorage.setItem('animated', 'true');
+    } else {
+      box.classList.remove('animate');
+    }
+  }
+
+  resetBtn.addEventListener('click', () => {
+    localStorage.removeItem('animated');
+    box.classList.remove('animate');
+    setTimeout(() => box.classList.add('animate'), 100); // re-trigger
+  });
+
+  triggerAnimation();
+</script>
+</body>
+</html>
