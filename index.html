@@ -7,31 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="box" class="box">Hello</div>
-    <button id="resetBtn">Reset Animation</button>
+    <h1 id="title">Welcome!</h1>
+
+    <button id="animateBtn" class="animated-btn">Click Me</button>
+    <button id="toggleThemeBtn">Toggle Theme</button>
 
     <script>
-  const box = document.getElementById('box');
-  const resetBtn = document.getElementById('resetBtn');
+        const animateBtn = document.getElementById('animateBtn');
+        const toggleThemeBtn = document.getElementById('toggleThemeBtn');
 
-  function triggerAnimation() {
-    const hasAnimated = localStorage.getItem('animated');
+        // Load and apply stored theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.classList.add(savedTheme);
 
-    if (!hasAnimated) {
-      box.classList.add('animate');
-      localStorage.setItem('animated', 'true');
-    } else {
-      box.classList.remove('animate');
-    }
-  }
+        // Toggle theme and save preference
+        toggleThemeBtn.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+          document.body.classList.toggle('light');
 
-  resetBtn.addEventListener('click', () => {
-    localStorage.removeItem('animated');
-    box.classList.remove('animate');
-    setTimeout(() => box.classList.add('animate'), 100); // re-trigger
-  });
+          const newTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+          localStorage.setItem('theme', newTheme);
+        });
 
-  triggerAnimation();
-</script>
+        // Trigger animation
+        animateBtn.addEventListener('click', () => {
+          animateBtn.classList.add('clicked');
+
+          // Remove class after animation ends to allow retriggering
+          animateBtn.addEventListener('animationend', () => {
+            animateBtn.classList.remove('clicked');
+          }, { once: true });
+        });
+      </script>
 </body>
 </html>
