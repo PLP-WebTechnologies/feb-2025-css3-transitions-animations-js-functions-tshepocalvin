@@ -1,6 +1,7 @@
 # CSS3 Transitions, Animations, and Advanced JavaScript Functions
 
-#Preview 
+# Preview 
+
   http://tshepocalvin.github.io/feb-2025-css3-transitions-animations-js-functions-tshepocalvin
 
 ## Objectives
