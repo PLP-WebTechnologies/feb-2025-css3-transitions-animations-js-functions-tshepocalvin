@@ -2,7 +2,7 @@
 
 # Preview 
 
-  http://tshepocalvin.github.io/feb-2025-css3-transitions-animations-js-functions-tshepocalvin
+  [http://tshepocalvin.github.io/feb-2025-css3-transitions-animations-js-functions-tshepocalvin](https://plp-webtechnologies.github.io/feb-2025-css3-transitions-animations-js-functions-tshepocalvin/)
 
 ## Objectives
 
